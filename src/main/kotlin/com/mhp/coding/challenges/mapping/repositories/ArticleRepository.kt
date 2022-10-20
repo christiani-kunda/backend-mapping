@@ -4,7 +4,6 @@ import com.mhp.coding.challenges.mapping.models.db.Article
 import com.mhp.coding.challenges.mapping.models.db.Image
 import com.mhp.coding.challenges.mapping.models.db.ImageSize
 import com.mhp.coding.challenges.mapping.models.db.blocks.*
-import org.springframework.stereotype.Component
 import java.util.*
 
 object ArticleRepository {
@@ -30,6 +29,11 @@ object ArticleRepository {
     private val Long.dummyArticleBlocks: Set<ArticleBlock> by lazy {
         val textBlock = TextBlock(
             text = "Some Text for $this",
+            sortIndex = 0
+        )
+
+        val anotherTextBlock = AnotherTextBlock(
+            text = "Another Text for $this",
             sortIndex = 0
         )
 
@@ -61,7 +65,7 @@ object ArticleRepository {
             sortIndex = 4
         )
 
-        setOf(textBlock, imageBlock, secondTextBlock, galleryBlock, thirdTextBlock, videoBlock)
+        setOf(textBlock, imageBlock, secondTextBlock, galleryBlock, thirdTextBlock, videoBlock, anotherTextBlock)
     }
 
     private fun createImage(imageId: Long): Image? {
