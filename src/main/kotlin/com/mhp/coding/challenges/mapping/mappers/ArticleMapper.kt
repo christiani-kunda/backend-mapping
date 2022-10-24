@@ -31,7 +31,7 @@ class ArticleMapper {
                         is TextBlock ->articleBlockDto.add(mapper.convertValue(articleBlock, com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock::class.java))
                         is VideoBlock ->articleBlockDto.add(mapper.convertValue(articleBlock, com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock::class.java))
                         else -> {
-                            articleBlockDto.add(mapper.convertValue(articleBlock, GenericArticleDto::class.java))}
+                            articleBlockDto.add(GenericArticleDto("Implementation of " + articleBlock.javaClass + " is not implemented", articleBlock.sortIndex))}
                     }
                 }
             }
