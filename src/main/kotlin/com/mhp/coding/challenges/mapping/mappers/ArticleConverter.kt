@@ -9,6 +9,7 @@ import com.mhp.coding.challenges.mapping.models.db.blocks.VideoBlock
 import com.mhp.coding.challenges.mapping.models.dto.ArticleDto
 import com.mhp.coding.challenges.mapping.models.dto.blocks.ArticleBlockDto
 import com.mhp.coding.challenges.mapping.models.dto.blocks.GalleryBlockDto
+import com.mhp.coding.challenges.mapping.models.dto.blocks.GenericArticleDto
 import org.mapstruct.Mapper
 import org.mapstruct.ObjectFactory
 
@@ -34,7 +35,7 @@ abstract class ArticleConverter {
             }
 
             else -> {
-                map(articleBlock)
+                GenericArticleDto(articleBlock, articleBlock.sortIndex)
             }
         }
     }
